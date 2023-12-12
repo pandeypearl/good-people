@@ -5,11 +5,12 @@ $indigo-color: #4A4E69;
 
 .container{
     background: $background-color;
-    padding: 50px;
+    width: auto;
 
-    
+    .loading-text{
+        text-align: center;
+    }
     .timeline{
-        margin: 0 auto;
         list-style-type: none;
         display: flex;
         gap: 30px;
@@ -33,6 +34,9 @@ $indigo-color: #4A4E69;
                 p{
                     margin:0;
                     font-weight: 900;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
 
                     small{
                         font-weight: 400;

@@ -1,0 +1,52 @@
+$background-color: #F2E9E4;
+$indigo-color: #4A4E69;
+
+html, body{
+    background: $background-color;
+}
+
+header{
+    background: lighten($indigo-color, 20%);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: white;
+
+    div{
+        h1{
+            text-align: center;
+        }
+
+        hr{
+            border:none;
+            border-bottom: 1px solid white;
+        }
+
+        h3{
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+    
+
+    .welcome-img{
+        display: block;
+    }
+}
+
+main{
+    margin: 100px auto; 
+    width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        flex-direction: column
+    }
+
+    main{
+        margin: 50px auto;
+    }
+}
