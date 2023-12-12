@@ -16,3 +16,6 @@ This submission consists of:
 <strong>Dependencies:</strong>
 + sass
 
+### View live Demo
+The live demo can be viewed here : [View Live](https://good-people-submission.onrender.com)
+
