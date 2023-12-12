@@ -3,6 +3,7 @@ import './Timeline.scss';
 
 const Timeline = () => {
     const [timelineData, setTimelineData] = useState([]);
+    const [itemsToShow, setItemsToShow] = useState(10);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,10 +24,14 @@ const Timeline = () => {
         fetchData();
     }, []);
 
+    const handleLoadMore = () => {
+        setItemsToShow(itemsToShow + 10);
+    }
+
     return (
         <div className='container'>
             <ul className='timeline'>
-                {timelineData.slice(0, 20).map((item) => (
+                {timelineData.slice(0, itemsToShow).map((item) => (
                 <li key={item.Id}>
                     <div className='intro'>
                         <p>{item.Title}</p>
@@ -46,7 +51,9 @@ const Timeline = () => {
                 </li>
                 ))}
             </ul>
-
+            {timelineData.length > itemsToShow && (
+                <button className='load-more-btn' onClick={handleLoadMore}>Load More</button>
+            )}
         </div>
     )
 }
