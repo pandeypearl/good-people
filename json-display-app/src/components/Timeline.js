@@ -10,7 +10,7 @@ const Timeline = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3001/combinedData');
+                const response = await fetch('https://proxy-server-ny3r.onrender.com/combinedData');
                 const data = await response.json();
 
                 const timelineData = data.Timeline;
@@ -26,7 +26,7 @@ const Timeline = () => {
 
         fetchData();
     }, []);
-    
+
     //Load more content function
     const handleLoadMore = () => {
         setItemsToShow(itemsToShow + 10);
