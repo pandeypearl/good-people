@@ -7,10 +7,14 @@ const Timeline = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3001');
+                const response = await fetch('http://localhost:3001/combinedData');
                 const data = await response.json();
 
-                setTimelineData([data]);
+                const timelineData = data.Timeline;
+
+                console.log('Fetched Data:', timelineData);
+
+                setTimelineData(data.timelineData || []);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -20,17 +24,29 @@ const Timeline = () => {
     }, []);
 
     return (
-        <div>
-            {timelineData.map(item => (
-                <div key={item.Id}>
-                    <h3>{item.Title}</h3>
-                    <img src={`https://arthurfrost.qflo.co.za/Images/${item.Image}`} alt={item.Title} style={{ maxWidth: '100%' }} />
+        <div className='container'>
+            <ul className='timeline'>
+                {timelineData.slice(0, 20).map((item) => (
+                <li key={item.Id}>
+                    <div className='intro'>
+                        <p>{item.Title}</p>
+                        <p><small>{item.Category}</small></p>
+                        <p>{item.Description}</p>
+                        <p><small>{item.CreateDate}</small></p>
+                    </div>
+                    <div className='image-container'>
+                        <img className='image' src={`https://arthurfrost.qflo.co.za/${item.Image}`} alt={item.Title}/>
+                    </div>
+
                     <audio controls>
-                        <source src={`https://arthurfrost.qflo.co.za/MP3/${item.Audio}`} type="audio/mp3" />
-                        Your browser does not support the audio element.
+                    <source src={`https://arthurfrost.qflo.co.za/${item.Audio}`} type="audio/mp3" />
+                    Your browser does not support the audio element.
                     </audio>
-                </div>
-            ))}
+  
+                </li>
+                ))}
+            </ul>
+
         </div>
     )
 }

@@ -1,0 +1,61 @@
+$background-color: #F2E9E4;
+$tan-color: #C9ADA7;
+$sand-color: #9A8C98;
+$indigo-color: #4A4E69;
+
+.container{
+    background: $background-color;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 50px;
+}
+
+.timeline{
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-left: 0;
+
+    li{
+        width: 20rem;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 30px;
+        box-shadow: 5px 5px 5px rgb(0,0,0,0.4);
+        background: lighten($sand-color, 20%);
+
+        .intro{
+            background: $tan-color;
+            padding: 10px;
+            height: 6rem;
+            p{
+                margin:0;
+                font-weight: 900;
+
+                small{
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .image-container{
+            width: 20rem;
+            height: auto;
+
+            .image{
+                width: 100%;
+                object-fit: cover;
+            }
+        }   
+
+        audio{
+            width: 20rem;
+        }
+
+        
+    }
+}
